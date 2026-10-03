@@ -232,3 +232,15 @@ footer {
     gap: 15px;
     flex-wrap: wrap;
 }
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
