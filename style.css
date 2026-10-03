@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #4f46e5;
+}
+
+/* Hero */
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+button {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+/* Features */
+
+.features {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.features h2,
+.application h2 {
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Application */
+
+.application {
+    padding: 70px 20px;
+    text-align: center;
+    background: white;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: 2px solid #4f46e5;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #111827;
+    color: white;
+}
+
+/* Mobile */
+.track {
+    padding: 70px 20px;
+    text-align: center;
+    background: #f5f7fb;
+}
+
+.track h2 {
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+#trackForm {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#statusResult {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .features h2,
+    .application h2 {
+        font-size: 28px;
+    }
+}
+.dashboard {
+    padding: 70px 20px;
+    text-align: center;
+    background: white;
+}
+
+.dashboard h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.dashboard p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}

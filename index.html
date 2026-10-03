@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Help Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">StudentHelp</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#apply">Apply</a>
+            <a href="#track">Track Status</a>
+            <a href="#login">Login</a>
+            <a href="#signup">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Student Help Portal</h1>
+
+            <p>
+                A simple platform to help students discover opportunities,
+                apply for support and track their applications.
+            </p>
+
+            <button onclick="openApplication()">
+                Apply Now
+            </button>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+
+        <h2>What We Provide</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🎓 Scholarships</h3>
+                <p>
+                    Find scholarship opportunities and get financial support
+                    for your education.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📄 Applications</h3>
+                <p>
+                    Submit your application through a simple and easy form.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Track Status</h3>
+                <p>
+                    Check the current status of your submitted application.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="track" id="track">
+    <h2>Track Your Application</h2>
+
+    <form id="trackForm">
+        <input
+            type="email"
+            id="trackEmail"
+            placeholder="Enter your email"
+            required
+        >
+
+        <button type="submit">Check Status</button>
+    </form>
+
+    <div id="statusResult"></div>
+</section>
+<section class="login" id="login">
+    <h2>Student Login</h2>
+
+    <form id="loginForm">
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+            required
+        >
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+            required
+        >
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="loginResult"></p>
+</section>
+<section class="signup" id="signup">
+    <h2>Create Account</h2>
+
+    <form id="signupForm">
+        <input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+            required
+        >
+
+        <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+            required
+        >
+
+        <button type="submit">Create Account</button>
+    </form>
+
+    <p id="signupResult"></p>
+</section>
+<section class="dashboard" id="dashboard">
+    <h2>Student Dashboard</h2>
+
+    <p>Welcome to your Student Help Portal.</p>
+
+    <div class="dashboard-buttons">
+        <button onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+            Apply for Support
+        </button>
+
+        <button onclick="document.getElementById('track').scrollIntoView({behavior:'smooth'})">
+            Track Application
+        </button>
+
+        <button id="logoutButton">
+            Logout
+        </button>
+    </div>
+</section>
+    <section class="application" id="apply">
+
+        <h2>Apply for Student Support</h2>
+
+        <form id="applicationForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <input
+                type="text"
+                id="college"
+                placeholder="Enter your college"
+                required
+            >
+
+            <input
+                type="text"
+                id="course"
+                placeholder="Enter your course"
+                required
+            >
+
+            <button type="submit">
+                Submit Application
+            </button>
+
+        </form>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Student Help Portal | Hackathon Project</p>
+    </footer>
+    <script 
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
