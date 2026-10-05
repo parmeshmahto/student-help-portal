@@ -1,0 +1,1 @@
+- [Node 20 and Supabase server clients](node20-supabase.md) — SDK initialization can require WebSocket support even when backend routes only call PostgREST.

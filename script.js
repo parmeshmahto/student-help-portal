@@ -17,24 +17,29 @@ const form = document.getElementById("applicationForm");
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const college = document.getElementById("college").value;
-    const course = document.getElementById("course").value;
+    const application = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        college: document.getElementById("college").value,
+        course: document.getElementById("course").value
+    };
 
-    const { error } = await supabaseClient
-        .from("applications")
-        .insert([
-            {
-                name: name,
-                email: email,
-                college: college,
-                course: course
-            }
-        ]);
-
-    if (error) {
+    let response;
+    try {
+        response = await fetch("/api/applications", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(application)
+        });
+    } catch (error) {
         console.error(error);
+        alert("Application save nahi hui. Console me error dekho.");
+        return;
+    }
+
+    if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        console.error(result.error || "Application submission failed.");
         alert("Application save nahi hui. Console me error dekho.");
         return;
     }
@@ -42,7 +47,7 @@ form.addEventListener("submit", async function (event) {
     alert("Application successfully saved in database! 🎉");
 
     form.reset();
-})
+});
 const trackForm = document.getElementById("trackForm");
 const statusResult = document.getElementById("statusResult");
 
@@ -51,27 +56,29 @@ trackForm.addEventListener("submit", async function (event) {
 
     const email = document.getElementById("trackEmail").value.trim();
 
-    const { data, error } = await supabaseClient
-        .from("applications")
-        .select("name, status")
-        .eq("email", email)
-        .order("id", { ascending: false })
-        .limit(1);
-
-    if (error) {
+    let response;
+    try {
+        response = await fetch(
+            `/api/applications/status?email=${encodeURIComponent(email)}`
+        );
+    } catch (error) {
         console.error(error);
-        statusResult.innerHTML = "Application nahi mili.";
+        statusResult.textContent = "Application nahi mili.";
         return;
     }
 
-    if (!data || data.length === 0) {
-        statusResult.innerHTML = "Application nahi mili.";
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || !result.application) {
+        if (!response.ok) {
+            console.error(result.error || "Application tracking failed.");
+        }
+        statusResult.textContent = "Application nahi mili.";
         return;
     }
 
-    statusResult.innerHTML =
-        "Hello " + data[0].name +
-        "! Your application status is: " + data[0].status;
+    statusResult.textContent =
+        "Hello " + result.application.name +
+        "! Your application status is: " + result.application.status;
 });
 const loginForm = document.getElementById("loginForm");
 const loginResult = document.getElementById("loginResult");
